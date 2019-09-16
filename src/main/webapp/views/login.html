@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="common/header.html :: header"><title>Header Here FAKE</title></head>
+<div th:replace="common/navigationbar.html :: navbar"></div>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="span6 offset3">
+            <div class="page-header">
+                <h1>Sign in</h1>
+            </div>
+
+            <div th:replace="common/error.html :: error"></div>
+
+            <form class="well form-horizontal" method="post" action="/login.do" th:action="@{/login.do}">
+                <fieldset>
+
+                    <div class="control-group">
+                        <label class="control-label" for="email">Email:</label>
+                        <div class="controls">
+                            <input id="email" name="email" type="email" class="input-medium" placeholder="your@email.com" required="required"/>
+                            <p class="help-block alert-error" th:text="${errorEmail}"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="password">Password:</label>
+                        <div class="controls">
+                            <input type="password" id="password" name="password" class="input-medium" placeholder="min 6 characters" required="required"/>
+                            <p class="help-block alert-error" th:text="${errorPassword}"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="icon-lock icon-white"></i> Sign in</button>
+                    </div>
+
+                    <div align="center">
+                        You don't have an account yet? <a href="/register" th:href="@{/register}">Register here for free!</a>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+
+<footer th:replace="common/footer.html :: footer">Footer Here FAKE</footer>
+
+</html>

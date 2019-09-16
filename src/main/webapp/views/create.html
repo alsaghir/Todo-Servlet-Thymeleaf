@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header.html :: header"><title>Header Here FAKE</title></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            <div th:replace="common/sidebar.html :: sidebar"></div>
+        </div>
+        <div class="span9">
+            <div class="well">
+                <div class="page-header">
+                    <h1>Create a new todo</h1>
+                </div>
+
+                <form id="createTodoForm" action="/todos/new.do" th:action="@{/todos/new.do}" method="post" class="form-horizontal">
+
+                    <fieldset>
+
+                        <div class="control-group">
+                            <label class="control-label" for="title">Title:</label>
+                            <div class="controls">
+                                <input type="text" id="title" name="title" required="required" autofocus="autofocus"/>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="dueDate">Due date:</label>
+                            <div class="controls">
+                                <input type="text" id="dueDate" name="dueDate" th:value="${today}" value="23/12/2019" required="required"/>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="priority">Priority:</label>
+                            <div class="controls">
+                                <select id="priority" name="priority">
+                                    <option value="LOW">Low</option>
+                                    <option value="MEDIUM">Medium</option>
+                                    <option value="HIGH">High</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i> Create
+                            </button>
+                            <button type="button" class="btn" onclick="history.go(-1)"><i class="icon-remove"></i>
+                                Cancel
+                            </button>
+                        </div>
+
+                    </fieldset>
+
+                    <script>
+                        $('#dueDate').datepicker({
+                            format: 'dd/mm/yyyy'
+                        });
+                    </script>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="common/footer.html :: footer">Footer Here FAKE</footer>
+</body>
+</html>
+

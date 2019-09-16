@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div class="navbar navbar-fixed-top" th:fragment="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/index" th:href="@{/index}">Todolist MVC</a>
+
+            <!--/* logged in mode */-->
+            <div th:if="true">
+                <ul class="nav pull-right">
+                    <li th:class="${registerTabStyle}"><a href="/register" th:href="@{/register}">Register</a></li>
+                    <li th:class="${loginTabStyle}"><a href="/login" th:href="@{/login}">Login</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+</html>

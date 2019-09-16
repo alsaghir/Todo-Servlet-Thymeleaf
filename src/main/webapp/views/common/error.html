@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div class="alert alert-block alert-error" th:fragment="error" th:if="${error} != null">
+    <strong th:text="${error}">Error Displayed Here</strong>
+</div>
+
+</html>
